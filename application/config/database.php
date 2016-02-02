@@ -79,7 +79,7 @@ $db['default'] = array(
 	'username' => 'postgresql',
 	'password' => 'dbMaster',
 	'database' => 'concrete',
-	'dbdriver' => 'pdo',
+	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
