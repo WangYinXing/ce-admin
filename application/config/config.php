@@ -35,7 +35,7 @@ $config['base_url'] = '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -511,3 +511,38 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+
+
+
+
+/*
+| -------------------------------------------------------------------
+|  Native Autoload - by Phil Sturgeon. New Version!
+| -------------------------------------------------------------------
+|
+| Nothing to do with config/autoload.php, this allows PHP autoload to work
+| for base controllers and some third-party libraries.
+|
+| If using HMVC you do not need this! HMVC will autoload.
+|
+| Place this code at the bottom of your application/config/config.php file.
+*/
+function __autoload($class)
+{
+    if (strpos($class, 'CI_') !== 0)
+    {
+        if (file_exists($file = APPPATH . 'core/' . $class . '.php'))
+        {
+            include $file;
+        }
+        else if (file_exists($file = APPPATH . 'libraries/' . $class . '.php'))
+        {
+            include $file;
+        }
+        else if (file_exists($file = APPPATH . 'api/' . $class . '.php'))
+        {
+            include $file;
+        }
+    }
+}
