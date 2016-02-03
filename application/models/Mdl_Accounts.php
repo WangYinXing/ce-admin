@@ -1,9 +1,14 @@
 <?php
 
 
-use Zend\Crypt\Password\Bcrypt;
 
-Class Mdl_User extends Mdl_Campus {
+Class Mdl_Accounts extends Mdl_Campus {
+
+	function __construct() {
+		parent::__construct();
+
+		$this->table = 'account';
+	}
 
 
 	function login($username, $password) {
@@ -26,6 +31,30 @@ Class Mdl_User extends Mdl_Campus {
 	    }
 
 	    return false;
+	}
+
+	function _list($rp, $page, $query, $qtype, $sortname, $sortorder, $count = false) {
+		$this->db->select("*");
+		$this->db->from("account");
+		$this->db->join("accountrole", "account.id = accountrole.accountid", "left");
+		$this->db->join("person", "account.id = person.id", "left");
+
+		if ($count)
+			return $this->db->count_all_results();
+
+		$this->db->limit($rp, $rp * ($page - 1));
+
+		return $this->db->get()->result();
+	}
+
+	function get($id) {
+		$this->db->select("*");
+		$this->db->from("account");
+		$this->db->join("accountrole", "account.id = accountrole.accountid", "left");
+		$this->db->join("person", "account.id = person.id", "left");
+		$this->db->where("account.id", $id);
+
+		return $this->db->get()->result()[0];
 	}
 
 	function set_session() {

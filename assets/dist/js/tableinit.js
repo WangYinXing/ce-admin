@@ -1,22 +1,9 @@
 
 function initTable() {
 	$("#main-table").flexigrid({
-		url: 'users/api_entry_list',
+		url: tbDef.name + '/ajax_list',
 		dataType: 'json',
-		colModel : [
-			{display: 'User name', name : 'username', width : 150, sortable : true, align: 'left'},
-			{display: 'Email', name : 'email', width : 150, sortable : true, align: 'left'},
-			{display: 'udid', name : 'udid', width : 300, sortable : true, align: 'left'},
-			{display: 'Device token', name : 'devicetoken', width : 340, sortable : true, align: 'left'},
-			{display: 'Full name', name : 'fullname', width : 140, sortable : true, align: 'left'},
-			{display: 'Church', name : 'church', width : 140, sortable : true, align: 'left'},
-			{display: 'Province', name : 'province', width : 140, sortable : true, align: 'left'},
-			{display: 'City', name : 'city', width : 140, sortable : true, align: 'left'},
-			{display: 'Birth day', name : 'bday', width : 140, sortable : true, align: 'left'},
-			{display: 'QB id', name : 'qbid', width : 100, sortable : true, align: 'left'},
-			{display: 'Avatar URL', name : 'avatar', width : 200, sortable : true, align: 'left'},
-			{display: 'Token', name : 'token', width : 200, sortable : true, align: 'left'},
-		],
+		colModel : tbDef.columns,
 		buttons : [
 			{name: 'Edit', bclass: 'edit', onpress : doCommand},
 			{name: 'Delete', bclass: 'delete', onpress : doCommand},
@@ -28,14 +15,14 @@ function initTable() {
 		],
 		sortname: "id",
 		usepager: true,
-		title: "Registered iPrayees",
+		title: tbDef.title,
 		useRp: true,
 		rp: 10,
 		showTableToggleBtn: false,
 		resizable: true,
 		singleSelect: true,
 		onDoubleClick: onDblClick,
-		height: 700
+		height:$("#flexigridDiv").innerHeight()
     });
 	
 	$(".btn-edit").click(function() {
@@ -50,7 +37,7 @@ function initTable() {
 function onDblClick(target, grid) {
 	var index = $(target).attr("data-id");
 
-	window.location.assign(siteUrl + "Users/edit/" + index);
+	window.location.assign(siteUrl + tbDef.name + "/edit/" + index);
 }
   
 function doCommand(comm) {
@@ -62,13 +49,13 @@ function doCommand(comm) {
 	}
 
 	if (comm == "Edit") {
-		window.location.assign(siteUrl + "Users/edit/" + selectedUser);
+		window.location.assign(siteUrl + tbDef.name + "/edit/" + selectedUser);
 	}
 	else if (comm == "Delete") {
-		if (!confirm("Are you sure to delete this iprayee? You can never undo this action.")) {
+		if (!confirm("Are you sure to delete this account? You can't undo this action.")) {
 			return;
 		}
 
-		window.location.assign(siteUrl + "Users/del/" + selectedUser);
+		window.location.assign(siteUrl + tbDef.name + "/del/" + selectedUser);
 	}
 }

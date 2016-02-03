@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*
 	header and side menu....
 */
-	$this->view('vw_header');
+	$this->view('Common/header');
 
 	?>
 
@@ -16,8 +16,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="wrapper">
 
 		<?php
-			$this->view('vw_banner');
-			$this->view('vw_sidemenu');
+			$this->view('Common/banner');
+			$this->view('Common/sidemenu');
 
 		/*
 			Load page contents....
@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		?>
 
 
-		<?php $this->view('vw_footer') ?>
+		<?php $this->view('Common/footer') ?>
 	</div>
 </body>
 </html>

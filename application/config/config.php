@@ -530,19 +530,18 @@ $config['proxy_ips'] = '';
 */
 function __autoload($class)
 {
+	$arrModulePaths = [
+		"core/",
+		"libraries/",
+		"api/",
+		"controllers/TBView/"
+	];
+
     if (strpos($class, 'CI_') !== 0)
     {
-        if (file_exists($file = APPPATH . 'core/' . $class . '.php'))
-        {
-            include $file;
-        }
-        else if (file_exists($file = APPPATH . 'libraries/' . $class . '.php'))
-        {
-            include $file;
-        }
-        else if (file_exists($file = APPPATH . 'api/' . $class . '.php'))
-        {
-            include $file;
-        }
+    	foreach ($arrModulePaths as $path) {
+    		if (file_exists($file = APPPATH . $path . $class . '.php'))
+	            include $file;
+    	}
     }
 }

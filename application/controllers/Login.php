@@ -22,12 +22,10 @@ class Login extends CE_Controller {
 	function __construct() {
 		parent::__construct();
 
-		$this->load->model('Mdl_User', '', TRUE);
+		$this->load->model('Mdl_Accounts', '', TRUE);
 	}
 
 	public function index() {
-		//$this->Mdl_User->destroy_session();
-
 		if( $this->session->userdata('isLoggedIn') ) {
 	        redirect('/dashboard');
 	        $this->show_login(false);
@@ -48,13 +46,19 @@ class Login extends CE_Controller {
 		$pass  = $this->input->post('password');
 
 		//Ensure values exist for email and pass, and validate the user's credentials
-		if( $username && $pass && $this->Mdl_User->login($username, $pass)) {
+		if( $username && $pass && $this->Mdl_Accounts->login($username, $pass)) {
 		  // If the user is valid, redirect to the main view
 		  redirect('/dashboard');
 		} else {
 		  // Otherwise show the login screen with an error message.
 		  $this->show_login(true);
 		}
+	}
+
+	public function logout() {
+		$this->Mdl_Accounts->destroy_session();
+
+	    $this->show_login(false);
 	}
 }
 

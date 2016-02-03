@@ -26,7 +26,7 @@ class CE_Controller extends CI_Controller {
 	}
 
 	protected function loadView() {
-		$this->load->view('vw_home', $this->viewData);
+		$this->load->view('vw_campus', $this->viewData);
 	}
 }
 

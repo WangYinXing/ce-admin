@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox"> Remember Me
+              <input type="checkbox">&nbsp;Remember Me
             </label>
           </div>
         </div>

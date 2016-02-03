@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CE_Controller {
+class Accounts extends TBView_Accounts {
 
 	/**
 	 * Index Page for this controller.
@@ -23,23 +23,15 @@ class Dashboard extends CE_Controller {
 	function __construct() {
 		parent::__construct();
 
-		$this->load->model('Mdl_Dashboard', '', TRUE);
-		$this->load->model('Mdl_Accounts');
-		//$this->load->model('Mdl_Requests');
-		//$this->load->model('Mdl_Prays');
+		
 	}
 
 	public function index() {
-		if( !$this->session->userdata('isLoggedIn') ) {
-			redirect('/');
-		}
+		parent::initView(get_class($this) . '/list', 'Accounts', 'Account list.',
+			array()
+		);
 
-		$this->initView('vw_dashboard', 'Dashboard', 'dashboard',
-			array(
-				)
-			);
-
-		$this->loadView();
+		parent::loadView();
 	}
 }
 ?>

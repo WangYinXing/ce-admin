@@ -95,26 +95,6 @@ label:hover:before {
   display: none;
 }
 
-/*
-  Selected....
-*/
-.flexigrid div.bDiv tr.trSelected:hover td, .flexigrid div.bDiv tr.trSelected:hover td.sorted, .flexigrid div.bDiv tr.trOver.trSelected td.sorted, .flexigrid div.bDiv tr.trOver.trSelected td, .flexigrid tr.trSelected td.sorted, .flexigrid tr.trSelected td {
-  background: #85BBA7;
-  color: white;
-  border: none;
-  line-height: 2em;
-}
-
-
-/*
-  Hover....
-*/
-.flexigrid div.bDiv tr:hover td, .flexigrid div.bDiv tr:hover td.sorted, .flexigrid div.bDiv tr.trOver td.sorted, .flexigrid div.bDiv tr.trOver td {
-  background: #AADCC9;
-  //color: white;
-  border: none;
-  line-height: 2em;
-}
 
 .flexigrid div.bDiv td {
   line-height: 2em;
@@ -130,19 +110,19 @@ label:hover:before {
 
 .btn-girdtoolbar {
   width: 200px;
-  background: #6CA590;
+  background: #373C46;
   color: white;
   border:1px solid rgba(255, 255, 255, 0.35);
 }
 
 .btn-girdtoolbar:hover {
-  background: #4A8670;
-  color: white;
+  background: #A7ADB9;
+  color: #1D2025;
 }
 
 .content-wrapper {
-  background: #6CA590;
-  color: #222D32;
+  background: #292d35;
+  color: white;
   min-height: 1000px;
 }
 
@@ -261,4 +241,30 @@ a:hover, a:active, a:focus {
 
 .login-page, .register-page {
   background: #292D35;
+}
+
+.flexigrid {
+  padding:1em;
+}
+
+#main-table {
+  background: #49505D;
+}
+
+.form-group select {
+  height: 2em;
+  line-height:2em;
+}
+
+.form-group select {
+  background: #424854;
+  color: white;
+  display: block;
+  width: 100%;
+  height: 2em;
+  line-height:2em;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  
 }

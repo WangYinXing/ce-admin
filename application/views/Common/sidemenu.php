@@ -15,15 +15,14 @@
     </div>
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
-      <li style="display:none" class="header">WE TRUST IN OUR GOD</li>
-      <li <?php if ($page == 'dashboard') echo "class='active'";?>>
+      <li <?php if ($page == 'Dashboard') echo "class='active'";?>>
         <a href='<?php echo site_url("dashboard"); ?>'>
           <i class="fa fa-dashboard"></i> <span>DASHBOARD</span>
         </a>
       </li>
-      <li <?php if ($page == 'users') echo "class='active'";?>>
-        <a href='<?php echo site_url("users"); ?>'>
-          <i class="fa fa-user"></i> <span>iPRAYEES</span>
+      <li <?php if ($page == 'Accounts') echo "class='active'";?>>
+        <a href='<?php echo site_url("accounts"); ?>'>
+          <i class="fa fa-user"></i> <span>ACCOUNTS</span>
         </a>
       </li>
       <li <?php if ($page == 'requests') echo "class='active'";?>>

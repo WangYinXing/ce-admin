@@ -57,7 +57,7 @@
         </li>
         <!-- Control Sidebar Toggle Button -->
         <li>
-          <a href="/adminlogin/logout" data-toggle="control-sidebar"><i class="fa fa-sign-out"></i></a>
+          <a href="/Login/logout" data-toggle="control-sidebar"><i class="fa fa-sign-out"></i></a>
         </li>
       </ul>
     </div>
