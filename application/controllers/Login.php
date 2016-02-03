@@ -23,9 +23,6 @@ class Login extends CE_Controller {
 		parent::__construct();
 
 		$this->load->model('Mdl_User', '', TRUE);
-
-		$this->load->helper('form');
-		$this->load->helper('url');
 	}
 
 	public function index() {

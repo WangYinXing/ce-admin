@@ -11,7 +11,7 @@ Class Mdl_User extends Mdl_Campus {
 		$this->db->from("account");
 
 		$this->db->where("username", $username);
-		//$this->db->where("password", MD5($password));
+		$this->db->where("password", MD5($password));
 
 		$login = $this->db->get()->result();
 
