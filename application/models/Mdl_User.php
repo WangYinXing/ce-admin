@@ -8,15 +8,7 @@ Class Mdl_User extends Mdl_Campus {
 
 	function login($username, $password) {
 		$this->db->select("*");
-		$this->db->from("ipray_admins");
-
-		$options = [
-    		'cost' => 11,
-		    'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
-		];
-		echo password_hash($password, PASSWORD_BCRYPT, $options)."\n";
-		return;
-		//$bcrypt = new Bcrypt();
+		$this->db->from("account");
 
 		$this->db->where("username", $username);
 		$this->db->where("password", MD5($password));

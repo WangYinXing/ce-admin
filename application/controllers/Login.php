@@ -45,7 +45,6 @@ class Login extends CE_Controller {
 	}
 
 	public function login_user() {
-		// Grab the email and password from the form POST
 		$username = $this->input->post('username');
 		$pass  = $this->input->post('password');
 
