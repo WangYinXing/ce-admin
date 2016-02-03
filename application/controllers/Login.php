@@ -29,6 +29,8 @@ class Login extends CE_Controller {
 	}
 
 	public function index() {
+		//$this->Mdl_User->destroy_session();
+
 		if( $this->session->userdata('isLoggedIn') ) {
 	        redirect('/dashboard');
 	        $this->show_login(false);

@@ -15,6 +15,8 @@ Class Mdl_User extends Mdl_Campus {
 
 		$login = $this->db->get()->result();
 
+		print_r($login);
+
 		// The results of the query are stored in $login.
 	    // If a value exists, then the user account exists and is validated
 	    if ( is_array($login) && count($login) == 1 ) {
