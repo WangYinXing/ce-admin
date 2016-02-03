@@ -12,18 +12,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	
 	<!-- Bootstrap 3.3.5 -->
-	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
 	<!-- Theme style -->
-	<link rel="stylesheet" href="assets/dist/css/AdminLTE.min.css">
+	<link rel="stylesheet" href="/assets/dist/css/AdminLTE.min.css">
 	<!-- iCheck -->
-	<link rel="stylesheet" href="assets/plugins/iCheck/square/blue.css">
+	<link rel="stylesheet" href="/assets/plugins/iCheck/square/blue.css">
 
-	<script src="assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/plugins/iCheck/icheck.min.js"></script>
+	<script src="/assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/assets/plugins/iCheck/icheck.min.js"></script>
 
-	<link rel="stylesheet" href="assets/dist/css/common.css">
-  <link rel="stylesheet" href="assets/dist/css/skin-custom.css">
+	<link rel="stylesheet" href="/assets/dist/css/common.css">
+  <link rel="stylesheet" href="/assets/dist/css/skin-custom.css">
 </head>
 
 
@@ -35,9 +35,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-
    <?php echo validation_errors(); ?>
-   <?php echo form_open('AdminLogin/login_user'); ?>
+   <?php echo form_open('/Login/login_user'); ?>
    <?php if ($error) { echo "<p style='color:#FF8264'>Failed to login.</p>"; } ?>
       <div class="form-group has-feedback">
         <input name="username" type="text" class="form-control" placeholder="User name">

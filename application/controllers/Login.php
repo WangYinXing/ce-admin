@@ -21,7 +21,9 @@ class Login extends CE_Controller {
 
 	function __construct() {
 		parent::__construct();
-		//$this->load->model('Mdl_AdminUsers', '', TRUE);
+
+		$this->load->model('Mdl_User', '', TRUE);
+
 		$this->load->helper('form');
 		$this->load->helper('url');
 	}
@@ -40,6 +42,21 @@ class Login extends CE_Controller {
 
 	    //$this->load->helper('form');
 	    $this->load->view('vw_login',$data);
+	}
+
+	public function login_user() {
+		// Grab the email and password from the form POST
+		$username = $this->input->post('username');
+		$pass  = $this->input->post('password');
+
+		//Ensure values exist for email and pass, and validate the user's credentials
+		if( $username && $pass && $this->Mdl_User->login($username, $pass)) {
+		  // If the user is valid, redirect to the main view
+		  redirect('/dashboard');
+		} else {
+		  // Otherwise show the login screen with an error message.
+		  $this->show_login(true);
+		}
 	}
 }
 
