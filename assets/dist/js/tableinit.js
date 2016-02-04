@@ -24,6 +24,10 @@ function initTable() {
 		onDoubleClick: onDblClick,
 		height:$("#flexigridDiv").innerHeight()
     });
+
+    $(".btn-create").click(function() {
+		window.location.assign(siteUrl + tbDef.name + "/edit/");
+	});
 	
 	$(".btn-edit").click(function() {
 		$(".fbutton .edit").click();
@@ -36,6 +40,11 @@ function initTable() {
 
 function onDblClick(target, grid) {
 	var index = $(target).attr("data-id");
+
+	if (typeof index == "undefined") {
+		alert("Can't open account.");
+		return;
+	}
 
 	window.location.assign(siteUrl + tbDef.name + "/edit/" + index);
 }

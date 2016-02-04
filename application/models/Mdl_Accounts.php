@@ -47,6 +47,57 @@ Class Mdl_Accounts extends Mdl_Campus {
 		return $this->db->get()->result();
 	}
 
+	function save($id, $account) {
+		// Update ....
+		if (!$account['isNew']) {
+			$this->db->update('person', [
+			"firstname" => $account['firstname'],
+			"lastname" => $account['lastname'],
+			], "id = '$id'");
+
+			if (isset($account['password']) && strlen($account['password']) > 5) {
+				$this->db->update('account', [
+				"password" => md5($account['password']),
+				], "id = '$id'");
+			}
+
+			$this->db->update('account', [
+				"username" => $account['username'],
+				], "id = '$id'");
+
+			$this->db->update('accountrole', [
+				"role" => $account['role'],
+				], "accountid = '$id'");
+		}
+		// Insert...
+		else {
+			$this->db->insert('account', buildBaseParam([
+				"id" => $id,
+				"username" => $account['username'],
+				"password" => md5($account['password']),
+				]));
+
+			$this->db->insert('person', buildBaseParam([
+				"id" => $id,
+				"firstname" => $account['firstname'],
+				"lastname" => $account['lastname'],
+			]));
+
+			$this->db->insert('accountrole', buildBaseParam([
+				"id" => gen_uuid(),
+				"accountid" => $id,
+				"role" => $account['role'],
+				]));
+		}
+		
+	}
+
+	function del($id) {
+		$this->db->delete("account", ["id" => $id]);
+		$this->db->delete("accountrole", ["accountid" => $id]);
+		$this->db->delete("person", ["id" => $id]);
+	}
+
 	function get($id) {
 		$this->db->select("*");
 		$this->db->from("account");

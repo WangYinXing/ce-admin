@@ -138,6 +138,16 @@
     background: #292d35;   
 }
 
+.flexigrid div.pDiv input {
+    background: #49505D;
+    border:0px;
+}
+
+.flexigrid div.pDiv select {
+    background: #49505D;
+    border:0px;   
+}
+
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -167,4 +177,8 @@
   color: white;
   border: none;
   line-height: 2em;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    opacity: 0.2;
 }

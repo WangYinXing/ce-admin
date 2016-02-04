@@ -18,7 +18,7 @@ class Dashboard extends CE_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-
+	
 
 	function __construct() {
 		parent::__construct();
@@ -28,6 +28,8 @@ class Dashboard extends CE_Controller {
 		//$this->load->model('Mdl_Requests');
 		//$this->load->model('Mdl_Prays');
 	}
+
+	
 
 	public function index() {
 		if( !$this->session->userdata('isLoggedIn') ) {

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Accounts extends TBView_Accounts {
+class Colors extends TBView_Colors {
 
 	/**
 	 * Index Page for this controller.
@@ -27,7 +27,7 @@ class Accounts extends TBView_Accounts {
 	}
 
 	public function index() {
-		parent::initView('Common/list', 'Accounts', 'Account list.',
+		parent::initView('Common/list', 'Colors', 'Color list.',
 			array()
 		);
 

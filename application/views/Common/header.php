@@ -26,7 +26,7 @@
 	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/assets/plugins/iCheck/icheck.min.js"></script>
 	<script src="/assets/plugins/datepicker/bootstrap-datepicker.js"></script>
-  
+  	<script src="/assets/dist/js/app.min.js"></script>
   <!-- iCheck -->
 
   <?php

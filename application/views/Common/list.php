@@ -1,4 +1,4 @@
-<header>
+  <header>
   <script src="/assets/Flexigrid-master/js/flexigrid.js"></script>
   <script src="/assets/dist/js/tableinit.js"></script>
 <!--
@@ -18,6 +18,7 @@
     </h1>
   </section>
   <div class="grid-toolbar">
+  <button type="button" class="btn-create btn btn-flat btn-girdtoolbar">CREATE</button>
     <button type="button" class="btn-edit btn btn-flat btn-girdtoolbar">EDIT</button>
     <button type="button" class="btn-delete btn btn-flat btn-girdtoolbar">DELETE</button>
   </div>
