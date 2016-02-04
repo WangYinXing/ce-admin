@@ -130,7 +130,13 @@
     background: none;
 }
 
+.flexigrid div.pDiv {
+    background: #292d35;
+}
 
+.flexigrid div.vGrip {
+    background: #292d35;   
+}
 
 ::-webkit-scrollbar {
     width: 6px;

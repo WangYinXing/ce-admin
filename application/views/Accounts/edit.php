@@ -43,7 +43,7 @@
           <div class="form-group"><label >Status</label>
             <input name="status" type="text" value='<?= $param->status ?>' class="form-control" placeholder="Status">
           </div>
-          <input class="changepassword" type="checkbox" />&nbsp;&nbsp;&nbsp;Change password
+          <input id="changepassword" type="checkbox" name="checkbox" value="1" checked="checked"><label for="changepassword">&nbsp;&nbsp;&nbsp;Change password</label>
           <div class="form-group"><label>Password</label><input name="password" type="password" class="form-control" placeholder="Password"></div>
           <div class="form-group"><label>Confirm Password</label><input name="confirmpassword" type="password" class="form-control" placeholder="Confirm password"></div>
         </div>
@@ -64,10 +64,8 @@ $(function() {
   $(document).ready(function(evt) {
       var date = new Date();
 
-      $('.changepassword').iCheck({
-        checkboxClass: 'icheckbox_square-blue',
-        radioClass: 'iradio_square-blue',
-        increaseArea: '20%' // optional
+      $('.changepassword').change( function() {
+        alert($(this).val());
       });
 
      $("#save_user_form").submit(function(evt) {

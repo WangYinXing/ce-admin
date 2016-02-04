@@ -33,7 +33,7 @@ Class Mdl_Accounts extends Mdl_Campus {
 	    return false;
 	}
 
-	function _list($rp, $page, $query, $qtype, $sortname, $sortorder, $count = false) {
+	function _list($rp = 10, $page = 0, $query = '', $qtype = '', $sortname = '', $sortorder = '', $count = false) {
 		$this->db->select("*");
 		$this->db->from("account");
 		$this->db->join("accountrole", "account.id = accountrole.accountid", "left");

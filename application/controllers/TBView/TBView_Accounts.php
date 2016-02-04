@@ -14,6 +14,7 @@ class TBView_Accounts extends CE_Controller {
 	public function ajax_list() {
 		$ret = [];
 
+
 		$data = $this->Mdl_Accounts->_list(
 			$_POST['rp'],
 			$_POST['page'],
