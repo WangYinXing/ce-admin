@@ -25,13 +25,14 @@
           <i class="fa fa-user"></i> <span>ACCOUNTS</span>
         </a>
       </li>
-      <li class="<?php if ($page == 'Colors' || $page == 'Patterns') echo 'active';?>" class='treeview'>
+      <li class="<?php if ($page == 'Colors' || $page == 'Patterns' || $page == 'Ingredients') echo 'active';?>" class='treeview'>
         <a href='<?php echo site_url("colors"); ?>'>
           <i class="fa fa-balance-scale"></i> <span>INGREDIENT</span><i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-            <li class="<?php if ($page == 'Colors') echo 'active';?>"><a href='<?php echo site_url("colors"); ?>'><i class="fa fa-circle-o"></i> Color</a></li>
-            <li class="<?php if ($page == 'Patterns') echo 'active';?>"><a href='<?php echo site_url("patterns"); ?>'><i class="fa fa-circle-o"></i> Pattern</a></li>
+            <li class="<?php if ($page == 'Colors') echo 'active';?>"><a href='<?php echo site_url("colors"); ?>'><i class="fa fa-circle-o"></i> Colors</a></li>
+            <li class="<?php if ($page == 'Patterns') echo 'active';?>"><a href='<?php echo site_url("patterns"); ?>'><i class="fa fa-circle-o"></i> Patterns</a></li>
+            <li class="<?php if ($page == 'Ingredients') echo 'active';?>"><a href='<?php echo site_url("ingredients"); ?>'><i class="fa fa-circle-o"></i> Ingredients</a></li>
           </ul>
       </li>
       <li class="<?php if ($page == 'Systems') echo 'active';?>">

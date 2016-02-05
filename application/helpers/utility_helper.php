@@ -24,9 +24,9 @@ function gen_uuid() {
     );
 }
 
-function buildBaseParam($arrRecord) {
-	$arrRecord['addedby'] = $arrRecord['id'];
-	$arrRecord['changedby'] = $arrRecord['id'];
+function buildBaseParam($arrRecord, $user) {
+	$arrRecord['addedby'] = $user;
+	$arrRecord['changedby'] = $user;
 
 	$date = date_create();
 

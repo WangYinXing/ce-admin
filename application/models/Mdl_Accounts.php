@@ -75,19 +75,19 @@ Class Mdl_Accounts extends Mdl_Campus {
 				"id" => $id,
 				"username" => $account['username'],
 				"password" => md5($account['password']),
-				]));
+				], $id));
 
 			$this->db->insert('person', buildBaseParam([
 				"id" => $id,
 				"firstname" => $account['firstname'],
 				"lastname" => $account['lastname'],
-			]));
+			], $id));
 
 			$this->db->insert('accountrole', buildBaseParam([
 				"id" => gen_uuid(),
 				"accountid" => $id,
 				"role" => $account['role'],
-				]));
+				], $id));
 		}
 		
 	}

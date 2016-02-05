@@ -205,6 +205,10 @@ a:hover, a:active, a:focus {
   
 }
 
+.skin-blue .sidebar-menu>li>.treeview-menu {
+  background: #292D35;
+}
+
 
 input[type=checkbox]:not(old),
 input[type=radio   ]:not(old){
