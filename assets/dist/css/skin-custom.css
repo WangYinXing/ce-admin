@@ -3,8 +3,8 @@
 	background: #292d35;
 }
 
-.skin-blue .main-header .logo:hover,.skin-blue .main-header .navbar .sidebar-toggle:hover {
-	background-color: #46826B;
+.skin-blue .main-header .logo:hover, .skin-blue .main-header .navbar .sidebar-toggle:hover {
+  background: #373C46;
 }
 
 .skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {

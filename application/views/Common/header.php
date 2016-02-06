@@ -29,6 +29,9 @@
   	<script src="/assets/dist/js/app.min.js"></script>
   <!-- iCheck -->
 
+
+  <link rel="shortcut icon" href="/assets/ce.ico">
+
   <?php
   	echo 
   	"<script>

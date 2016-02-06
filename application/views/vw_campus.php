@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	?>
 
 
-<body class="hold-transition skin-blue">
+<body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 
 		<?php

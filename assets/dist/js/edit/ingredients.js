@@ -2,9 +2,8 @@
 $(function() {
   $(document).ready(function(evt) {
      $("#save_form").submit(function(event) {
-        if (!validate("input[name='name']", "text", "Please input ingredient name correctly.")) { event.preventDefault(); return;}
-        if (!validate("input[name='coverage']", "currency", "Please input coverage correctly.")) { event.preventDefault(); return;}
-        if (!validate("input[name='purchaseprice']", "currency", "Please input purchase price correctly.")) { event.preventDefault(); return;}
+        if (!validate("input[name='name']", "text", "Please input system name correctly.")) { event.preventDefault(); return;}
+        if (!validate("input[name='saleprice']", "currency", "Please System price correctly.")) { event.preventDefault(); return;}
 
         var selColors = {};
         var selPatterns = {};

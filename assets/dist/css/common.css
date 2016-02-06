@@ -56,9 +56,8 @@ label:hover:before {
   color: #1D2025;
 }
 
-
 .wrapper {
-  position: static;
+  //position: static;
 }
 
 .content-wrapper {
@@ -207,6 +206,19 @@ a:hover, a:active, a:focus {
 
 .skin-blue .sidebar-menu>li>.treeview-menu {
   background: #292D35;
+}
+
+.main-header {
+  z-index:1;
+}
+
+.item input {
+  background-color: rgba(255, 255, 255, 0.19);
+  color: white;
+  height: 2em;
+  margin-bottom: 0.5em;
+  width: 100%;
+  padding: 0.5em;
 }
 
 
