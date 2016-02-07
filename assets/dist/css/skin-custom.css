@@ -148,8 +148,13 @@
     border:0px;   
 }
 
+#main-table tbody tr {
+    background: #505765;
+}
+
 ::-webkit-scrollbar {
     width: 6px;
+    height: 6px;
 }
  
 ::-webkit-scrollbar-track {

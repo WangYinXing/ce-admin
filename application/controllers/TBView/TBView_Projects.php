@@ -1,20 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class TBView_Systems extends CE_Controller {
+class TBView_Projects extends CE_Controller {
 
 	public function __construct(){
 		parent::__construct();
 		// do whatever here - i often use this method for authentication controller
 
-		$this->load->model('Mdl_Systems');
+		$this->load->model('Mdl_Projects');
 		$this->load->helper("utility");
 	}
 
 	public function ajax_list() {
 		$ret = [];
 
-		$data = $this->Mdl_Systems->_list(
+		$data = $this->Mdl_Projects->_list(
 			$_POST['rp'],
 			$_POST['page'],
 			$_POST['query'],
@@ -24,7 +24,7 @@ class TBView_Systems extends CE_Controller {
 
 		echo json_encode(array(
 		  'page'=>$_POST['page'],
-		  'total'=>$this->Mdl_Systems->get_length(),
+		  'total'=>$this->Mdl_Projects->get_length(),
 		  'rows'=>$data,
 		));
 	}
@@ -32,10 +32,10 @@ class TBView_Systems extends CE_Controller {
 	public function edit($id = null) {
 		$record = new stdClass();
 
-		$ings = $this->Mdl_Systems->getIngredients();
+		$ings = $this->Mdl_Projects->getIngredients();
 
 		if ($id != null) {
-			$record = $this->Mdl_Systems->get($id);
+			$record = $this->Mdl_Projects->get($id);
 
 			$record->isNew = false;
 		}
@@ -108,15 +108,15 @@ class TBView_Systems extends CE_Controller {
 		$id = $_POST["id"];
 		unset($_POST["id"]);
 
-		$this->Mdl_Systems->save($id, $_POST);
+		$this->Mdl_Projects->save($id, $_POST);
 
-		redirect("/Systems/", 'refresh');
+		redirect("/Projects/", 'refresh');
 	}
 
 	public function del($id) {
-		$this->Mdl_Systems->del($id);
+		$this->Mdl_Projects->del($id);
 
-		redirect("/Systems/", 'refresh');
+		redirect("/Projects/", 'refresh');
 	}
 }
 

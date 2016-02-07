@@ -221,6 +221,13 @@ a:hover, a:active, a:focus {
   padding: 0.5em;
 }
 
+.loadingwheel {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  color: white;
+}
+
 
 input[type=checkbox]:not(old),
 input[type=radio   ]:not(old){

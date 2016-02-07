@@ -41,8 +41,13 @@
         </a>
       </li>
       <li class="<?php if ($page == 'Leads') echo 'active';?>">
-        <a href='<?php echo site_url("systems"); ?>'>
+        <a href='<?php echo site_url("leads"); ?>'>
           <i class="fa fa-table"></i> <span>LEADS</span>
+        </a>
+      </li>
+      <li class="<?php if ($page == 'Projects') echo 'active';?>">
+        <a href='<?php echo site_url("projects"); ?>'>
+          <i class="fa fa-table"></i> <span>PROJECTS</span>
         </a>
       </li>
     </ul>

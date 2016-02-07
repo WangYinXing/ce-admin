@@ -14,6 +14,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
+	<div class="loadingwheel">
+		
+	</div>
 
 		<?php
 			$this->view('Common/banner');

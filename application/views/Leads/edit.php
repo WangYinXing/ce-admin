@@ -34,19 +34,19 @@
     <div class="row">
       <div class="col-md-2">
         <div class="box-body">
-          <div class="form-group"><label>System name</label><input name="name" type="text" value='<?= $param->name ?>' class="form-control" placeholder="System name"></div>
-          <div class="form-group"><label>System price</label><input name="saleprice" type="text" value='<?= $param->saleprice ?>' class="form-control" placeholder="System price"></div>
+          <div class="form-group"><label>First name</label><input name="firstname" type="text" value='<?= $param->firstname ?>' class="form-control" placeholder="First name"></div>
+          <div class="form-group"><label>Last name</label><input name="lastname" type="text" value='<?= $param->name ?>' class="form-control" placeholder="Last name"></div>
+
+          <div class="form-group"><label>Company</label><input name="company" type="text" value='<?= $param->name ?>' class="form-control" placeholder="Company"></div>
           <input type='hidden' name='status'/>
           <input type='hidden' name='share'/>
-          <?= $param->shareHTML ?><br/>
-          <?= $param->activeHTML ?>
+          
         </div>
       </div>
       <div class="col-md-7">
         <div class="box-body">
           <label>Ingredients</label><br/>
           <div id="ingredients">
-            <?= $param->ingredientsHTML ?>
           </div>
         </div>
       </div>
