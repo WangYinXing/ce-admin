@@ -25,6 +25,8 @@ function initTable() {
 		height:$("#flexigridDiv").innerHeight()
     });
 
+    $(".pSearch.pButton").hide();
+
     $(".btn-create").click(function() {
 		window.location.assign(siteUrl + tbDef.name + "/edit/");
 	});
