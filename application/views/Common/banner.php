@@ -15,11 +15,11 @@
       <ul class="nav navbar-nav">
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="<?php echo base_url('assets/dist/img/user2-160x160.jpg'); ?>" class="user-image" alt="User Image">
+            <img style="display:none" src="<?php echo base_url('assets/dist/img/user2-160x160.jpg'); ?>" class="user-image" alt="User Image">
             <span class="hidden-xs"><?php echo $session->userdata('username')?></span>
             <small><?php echo $session->userdata('email')?></small>
           </a>
-          <ul class="dropdown-menu">
+          <ul style="display:none" class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
               <img src="<?php echo base_url('assets/dist/img/user2-160x160.jpg'); ?>" class="img-circle" alt="User Image">
