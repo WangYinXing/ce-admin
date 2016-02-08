@@ -54,7 +54,6 @@
       </li>
       <img style='display:none' class='sidebar-logo' src='/assets/ce-logo.png' />
     </ul>
-    <a href='/Login/logout' >aaaa</a>
   </section>
   <!-- /.sidebar -->
 </aside>
