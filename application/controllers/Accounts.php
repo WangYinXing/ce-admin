@@ -27,6 +27,10 @@ class Accounts extends TBView_Accounts {
 	}
 
 	public function index() {
+		if( !$this->session->userdata('isLoggedIn') ) {
+			redirect('/');
+		}
+		
 		parent::initView('Common/list', 'Accounts', 'Account list.',
 			array()
 		);

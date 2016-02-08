@@ -27,7 +27,7 @@ class Login extends CE_Controller {
 
 	public function index() {
 		if( $this->session->userdata('isLoggedIn') ) {
-	        redirect('/dashboard');
+	        redirect('/Accounts');
 	        $this->show_login(false);
 	    } else {
 	        $this->show_login(false);
@@ -48,7 +48,7 @@ class Login extends CE_Controller {
 		//Ensure values exist for email and pass, and validate the user's credentials
 		if( $username && $pass && $this->Mdl_Accounts->login($username, $pass)) {
 		  // If the user is valid, redirect to the main view
-		  redirect('/dashboard');
+		  redirect('/Accounts');
 		} else {
 		  // Otherwise show the login screen with an error message.
 		  $this->show_login(true);

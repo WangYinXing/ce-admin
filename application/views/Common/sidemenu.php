@@ -15,11 +15,13 @@
     </div>
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
+    <!--
       <li <?php if ($page == 'Dashboard') echo "class='active'";?>>
         <a href='<?php echo site_url("dashboard"); ?>'>
           <i class="fa fa-dashboard"></i> <span>DASHBOARD</span>
         </a>
       </li>
+      -->
       <li class="<?php if ($page == 'Accounts') echo 'active';?>">
         <a href='<?php echo site_url("accounts"); ?>'>
           <i class="fa fa-user"></i> <span>ACCOUNTS</span>
@@ -50,6 +52,7 @@
           <i class="fa fa-table"></i> <span>PROJECTS</span>
         </a>
       </li>
+      <img style='display:none' class='sidebar-logo' src='/assets/ce-logo.png' />
     </ul>
   </section>
   <!-- /.sidebar -->

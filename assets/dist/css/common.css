@@ -228,6 +228,17 @@ a:hover, a:active, a:focus {
   color: white;
 }
 
+.sidebar-logo {
+  position: absolute;
+  width: 48px;
+  bottom: 1em;
+  right: 0em;
+}
+
+.main-sidebar, .left-side {
+  padding-top: 70px;
+}
+
 
 input[type=checkbox]:not(old),
 input[type=radio   ]:not(old){
