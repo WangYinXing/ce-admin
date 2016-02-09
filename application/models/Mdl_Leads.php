@@ -11,19 +11,15 @@ Class Mdl_Leads extends Mdl_Campus {
 	}
 
 	function _list($rp = 10, $page = 0, $query = '', $qtype = '', $sortname = '', $sortorder = '', $count = false) {
-		$this->db->select("*");
+		$this->db->select("lead.id, person.firstname,person.lastname, person.company, leaddetail.email,
+			leaddetail.besttimetocall,phone.number, phone.type, leaddetail.hearaboutus,
+			leaddetail.howcanwehelp, address.address1, address.address2, address.city, address.state, address.zip
+			");
 		$this->db->from("lead");
 		$this->db->join("person", "lead.personid = person.id", "left");
 		$this->db->join("address", "person.id = address.personid", "left");
 		$this->db->join("phone", "person.id = phone.personid", "left");
 		$this->db->join("leaddetail", "lead.id = leaddetail.leadid", "left");
-
-
-		//$this->db->join("leaddetail", "lead.id = leaddetail.leadid", "left");
-		//$this->db->join("person", "lead.personid = person.id", "left");
-		//$this->db->join("phone", "person.id = phone.personid", "left");
-		//$this->db->join("address", "person.id = address.personid", "left");
-		//$this->db->group_by("id");
 
 		if ($count)
 			return $this->db->count_all_results();
