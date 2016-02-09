@@ -25,7 +25,7 @@
 
   <div id="main-table"></div>
   <div class="grid-prompt">
-    <small>Pleaes double click to edit.</small>
+    <small>Please double click to edit.</small>
   </div>
 </div>
 
