@@ -1,4 +1,19 @@
 
+@font-face {
+    font-family: menu-font;
+    src: url('fonts/EncodeSansCompressed-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: main-font;
+    src: url('fonts/Mako-Regular.ttf');
+}
+
+body {
+    //font-family:main-font;
+}
+
+
 .skin-blue .main-header .logo,.skin-blue .main-header .navbar{
 	background: #292d35;
 }
@@ -28,6 +43,11 @@
     border-top: 0;
     //border: 1px solid white;
     color: #666;
+}
+
+.sidebar-menu {
+    font-family: menu-font;
+    font-size:0.9em;
 }
 
 .skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
@@ -220,4 +240,8 @@
 .flexigrid .pReload {
     opacity: 0.8;
     background: url("../../Flexigrid-master/css/images/load.png") no-repeat center;
+}
+
+.grid-toolbar button {
+    font-size: 12px;
 }
