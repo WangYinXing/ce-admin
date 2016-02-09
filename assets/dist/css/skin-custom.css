@@ -245,3 +245,7 @@ body {
 .grid-toolbar button {
     font-size: 12px;
 }
+
+.ignore-labels label{
+    display: none;
+}

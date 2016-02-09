@@ -8,13 +8,15 @@ Class Mdl_Leads extends Mdl_Campus {
 		parent::__construct();
 
 		$this->table = 'lead';
+		$this->selectClause = "lead.id, person.firstname,person.lastname, person.company, leaddetail.email,
+			leaddetail.besttimetocall,phone.number, phone.type, leaddetail.hearaboutus,
+			leaddetail.howcanwehelp, address.address1, address.address2, address.city, address.state, address.zip,
+			lead.added, lead.addedby, lead.changed, lead.changedby
+			";
 	}
 
 	function _list($rp = 10, $page = 0, $query = '', $qtype = '', $sortname = '', $sortorder = '', $count = false) {
-		$this->db->select("lead.id, person.firstname,person.lastname, person.company, leaddetail.email,
-			leaddetail.besttimetocall,phone.number, phone.type, leaddetail.hearaboutus,
-			leaddetail.howcanwehelp, address.address1, address.address2, address.city, address.state, address.zip
-			");
+		$this->db->select($this->selectClause);
 		$this->db->from("lead");
 		$this->db->join("person", "lead.personid = person.id", "left");
 		$this->db->join("address", "person.id = address.personid", "left");
@@ -82,13 +84,15 @@ Class Mdl_Leads extends Mdl_Campus {
 	}
 
 	function get($id) {
-		$this->db->select("*");
-		$this->db->from("system");
-		$this->db->where("id", $id);
+		$this->db->select($this->selectClause);
+		$this->db->from("lead");
+		$this->db->join("person", "lead.personid = person.id", "left");
+		$this->db->join("address", "person.id = address.personid", "left");
+		$this->db->join("phone", "person.id = phone.personid", "left");
+		$this->db->join("leaddetail", "lead.id = leaddetail.leadid", "left");
+		$this->db->where("lead.id", $id);
 
 		$record = $this->db->get()->result()[0];
-
-		$this->getDetail($record);
 
 		return $record;
 	}

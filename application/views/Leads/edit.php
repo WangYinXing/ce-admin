@@ -35,9 +35,15 @@
       <div class="col-md-2">
         <div class="box-body">
           <div class="form-group"><label>First name</label><input name="firstname" type="text" value='<?= $param->firstname ?>' class="form-control" placeholder="First name"></div>
-          <div class="form-group"><label>Last name</label><input name="lastname" type="text" value='<?= $param->name ?>' class="form-control" placeholder="Last name"></div>
+          <div class="form-group"><label>Last name</label><input name="lastname" type="text" value='<?= $param->lastname ?>' class="form-control" placeholder="Last name"></div>
 
-          <div class="form-group"><label>Company</label><input name="company" type="text" value='<?= $param->name ?>' class="form-control" placeholder="Company"></div>
+          <div class="form-group"><label>Company</label><input name="company" type="text" value='<?= $param->company ?>' class="form-control" placeholder="Company"></div>
+
+          <div class="form-group"><label>Email</label><input name="email" type="text" value='<?= $param->email ?>' class="form-control" placeholder="Email"></div>
+          <div class="form-group"><label>Best time to call us</label><input name="besttimetocall" type="text" value='<?= $param->besttimetocall ?>' class="form-control" placeholder="Best time to call us"></div>
+          <div class="form-group"><label>How did you hear about us?</label><input name="hearaboutus" type="text" value='<?= $param->hearaboutus ?>' class="form-control" placeholder="How did you hear about us?"></div>
+          <div class="form-group"><label>How can we help?</label><input name="howcanwehelp" type="text" value='<?= $param->howcanwehelp ?>' class="form-control" placeholder="How can we help?"></div>
+
           <input type='hidden' name='status'/>
           <input type='hidden' name='share'/>
           
@@ -45,8 +51,8 @@
       </div>
       <div class="col-md-7">
         <div class="box-body">
-          <label>Ingredients</label><br/>
-          <div id="ingredients">
+          <label>Projects</label><br/>
+          <div id="projects">
           </div>
         </div>
       </div>
