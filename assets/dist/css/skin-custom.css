@@ -152,6 +152,15 @@
     background: #505765;
 }
 
+.flexigrid div.pDiv div.pButton:hover span, .flexigrid div.pDiv div.pButton.pBtnOver span {
+    border-top: none;
+    border-left: none;
+}
+.flexigrid div.pDiv div.pButton:hover, .flexigrid div.pDiv div.pButton.pBtnOver {
+    width:22px;
+    height:22px;
+}
+
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
