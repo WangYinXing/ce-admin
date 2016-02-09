@@ -42,12 +42,12 @@
           <i class="fa fa-th"></i> <span>SYSTEMS</span>
         </a>
       </li>
-      <li class="<?php if ($page == 'Leads') echo 'active';?>">
+      <li class="hidden <?php if ($page == 'Leads') echo 'active';?>">
         <a href='<?php echo site_url("leads"); ?>'>
           <i class="fa fa-table"></i> <span>LEADS</span>
         </a>
       </li>
-      <li class="<?php if ($page == 'Projects') echo 'active';?>">
+      <li class="hidden <?php if ($page == 'Projects') echo 'active';?>">
         <a href='<?php echo site_url("projects"); ?>'>
           <i class="fa fa-table"></i> <span>PROJECTS</span>
         </a>

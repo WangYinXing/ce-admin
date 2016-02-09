@@ -9,7 +9,7 @@ Class Mdl_Leads extends Mdl_Campus {
 
 		$this->table = 'lead';
 		$this->selectClause = "lead.id, person.firstname,person.lastname, person.company, leaddetail.email,
-			leaddetail.besttimetocall,phone.number, phone.type, leaddetail.hearaboutus,
+			leaddetail.besttimetocall, phone.number, phone.type, leaddetail.hearaboutus,
 			leaddetail.howcanwehelp, address.address1, address.address2, address.city, address.state, address.zip,
 			lead.added, lead.addedby, lead.changed, lead.changedby
 			";
@@ -94,6 +94,8 @@ Class Mdl_Leads extends Mdl_Campus {
 
 		$record = $this->db->get()->result()[0];
 
+		$this->getDetail($record);
+
 		return $record;
 	}
 
@@ -104,12 +106,21 @@ Class Mdl_Leads extends Mdl_Campus {
 		return $this->db->get()->result();
 	}
 
-	function getDetail($system) {
-		$this->db->select("extra, factor, ingredientid, systemid");
-		$this->db->from("systemdetail");
-		$this->db->where("systemid", $system->id);
+	function getDetail($record) {
+		$this->db->select("*");
+		$this->db->from("project");
+		$this->db->join("projectdetail", "project.id = projectdetail.projectid", "left");
+		$this->db->where("leadid", $record->id);
 
-		$system->selIngs = $this->db->get()->result();
+		$record->projects = $this->db->get()->result();
+
+		$this->db->select("*");
+		$this->db->from("phone");
+
+		$record->phones = $this->db->get()->result();
+
+		print_r($record);
+		exit;
 	}
 }
 ?>
