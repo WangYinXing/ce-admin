@@ -87,11 +87,11 @@
 .flexigrid table th {
   color: white;
   border: none;
-  border-bottom: 4px solid rgba(0,0,0,0) !important;
+  border-bottom: 4px solid rgba(255,255,255,0.1) !important;
 }
 
 .flexigrid table th:hover {
-  border-bottom: 4px solid orange !important;
+  border-bottom: 4px solid #F0FF05 !important;
 }
 
 
@@ -176,7 +176,7 @@
 ::-webkit-scrollbar-thumb {
     border-radius: 3px;
     //-webkit-box-shadow: inset 0 0 0px #292d35;
-    background: #D81F2F;
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .flexigrid div.bDiv tr:hover td, .flexigrid div.bDiv tr:hover td.sorted, .flexigrid div.bDiv tr.trOver td.sorted, .flexigrid div.bDiv tr.trOver td {
@@ -195,4 +195,29 @@
 
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
     opacity: 0.2;
+}
+
+.flexigrid .pFirst {
+    opacity: 0.8;
+    background: url("../../Flexigrid-master/css/images/first.png") no-repeat center;
+}
+
+.flexigrid .pLast {
+    opacity: 0.8;
+    background: url("../../Flexigrid-master/css/images/last.png") no-repeat center;
+}
+
+.flexigrid .pNext {
+    opacity: 0.8;
+    background: url("../../Flexigrid-master/css/images/next.png") no-repeat center;
+}
+
+.flexigrid .pPrev {
+    opacity: 0.8;
+    background: url("../../Flexigrid-master/css/images/prev.png") no-repeat center;
+}
+
+.flexigrid .pReload {
+    opacity: 0.8;
+    background: url("../../Flexigrid-master/css/images/load.png") no-repeat center;
 }
