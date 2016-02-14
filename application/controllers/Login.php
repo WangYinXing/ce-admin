@@ -70,6 +70,8 @@ class Login extends CE_Controller {
 	}
 
 	public function register_user() {
+		$data['error'] = '';
+
 		$this->load->view('Login/register',$data);
 	}
 }
