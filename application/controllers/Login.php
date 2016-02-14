@@ -38,7 +38,7 @@ class Login extends CE_Controller {
 	    $data['error'] = $show_error;
 
 	    //$this->load->helper('form');
-	    $this->load->view('vw_login',$data);
+	    $this->load->view('Login/login',$data);
 	}
 
 	public function login_user() {
@@ -58,7 +58,19 @@ class Login extends CE_Controller {
 	public function logout() {
 		$this->Mdl_Accounts->destroy_session();
 
-	    $this->show_login(false);
+		redirect('/Login');
+
+	    //$this->show_login(false);
+	}
+
+	public function register() {
+		 $data['error'] = '';
+
+		 $this->load->view('Login/register',$data);
+	}
+
+	public function register_user() {
+		$this->load->view('Login/register',$data);
 	}
 }
 

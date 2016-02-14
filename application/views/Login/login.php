@@ -5,24 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-	<!-- Font Awesome -->
-  <link rel="stylesheet" href="/assets/font-awesome-4.4.0/font-awesome-4.4.0/css/font-awesome.min.css">
-	<!-- Ionicons -->
 
-	
-	<!-- Bootstrap 3.3.5 -->
-	<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
-	<!-- Theme style -->
-	<link rel="stylesheet" href="/assets/dist/css/AdminLTE.min.css">
-	<!-- iCheck -->
-	<link rel="stylesheet" href="/assets/plugins/iCheck/square/blue.css">
+<?php $this->view('Login/header');?>
 
-	<script src="/assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="/assets/plugins/iCheck/icheck.min.js"></script>
-
-	<link rel="stylesheet" href="/assets/dist/css/common.css">
-  <link rel="stylesheet" href="/assets/dist/css/skin-custom.css">
 </head>
 
 
@@ -47,11 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
       <div class="row">
         <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox">&nbsp;Remember Me
-            </label>
-          </div>
+          <input id="remeberme" type="checkbox" name="checkbox" ><label for="remeberme">&nbsp;&nbsp;Remeber me</label>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
@@ -61,12 +42,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </form>
 
+    <div class='signup'>I don't have account. <a href='/Login/register'>&nbsp;&nbsp;Sign up.</a></div>
+
     <div style="display:none" class="social-auth-links text-center">
       <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
+      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
+      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
     </div>
     <!-- /.social-auth-links -->
 <!--
@@ -74,15 +55,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <a href="register.html" class="text-center">Register a new membership</a>
 -->
   </div>
-  <script>
-	  $(function () {
-	    $('input').iCheck({
-	      checkboxClass: 'icheckbox_square-blue',
-	      radioClass: 'iradio_square-blue',
-	      increaseArea: '20%' // optional
-	    });
-	  });
-  </script>
   <!-- /.login-box-body -->
 </div>
 </body>

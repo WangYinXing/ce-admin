@@ -1,0 +1,17 @@
+
+
+.signup {
+	text-align: right;
+	margin-top:1em;
+}
+
+.login-box-body, .register-box-body {
+	color: rgba(255, 255, 255, 0.61);
+}
+
+.input-icon {
+	position: absolute;
+    right: 0.5em;
+    top: 0px;
+    line-height: 2.5em;
+}

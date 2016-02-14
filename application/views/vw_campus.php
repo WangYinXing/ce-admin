@@ -9,13 +9,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 	$this->view('Common/header');
 
-	?>
+?>
 
 
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
-	<div class="loadingwheel">
-		
+		<div class="loadingwheel">
+		</div>
 	</div>
 
 		<?php
