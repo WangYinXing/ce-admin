@@ -38,7 +38,6 @@ label:hover:before {
 }
 
 .grid-toolbar {
-  height: 40px;
   width:100%;
   text-align: right;
   padding-right: 0.5em;

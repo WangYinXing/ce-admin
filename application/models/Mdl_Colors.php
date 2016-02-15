@@ -34,7 +34,7 @@ Class Mdl_Colors extends Mdl_Campus {
 			$this->db->insert('color', buildBaseParam([
 				"id" => $id,
 				"name" => $color['name']
-				]));
+				], $this->session->userdata('id')));
 		}
 		
 	}
