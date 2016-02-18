@@ -12,13 +12,15 @@ $(function() {
 
         $(".ing").each(function(ele) {
         	var id = $(this).find("input[type='checkbox']").attr("id");
+          var chekced  = $(this).find("input[type='checkbox']").prop("checked");
 
-
-          selIngs[id] = {
-            checked: $(this).find("input[type='checkbox']").prop("checked"),
-            extra: $(this).find("input._extra").val(),
-            factor: $(this).find("input._factor").val()
-          };
+          if (chekced) {
+            selIngs[id] = {
+              checked: $(this).find("input[type='checkbox']").prop("checked"),
+              extra: $(this).find("input._extra").val(),
+              factor: $(this).find("input._factor").val()
+            };
+          }
 
         });
 
