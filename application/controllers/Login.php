@@ -23,6 +23,8 @@ class Login extends CE_Controller {
 		parent::__construct();
 
 		$this->load->model('Mdl_Accounts', '', TRUE);
+		$this->load->helper("utility");
+		$this->load->helper("email");
 	}
 
 	public function index() {
@@ -64,13 +66,36 @@ class Login extends CE_Controller {
 	}
 
 	public function register() {
-		 $data['error'] = '';
+		$data['error'] = $data['msg'] = '';
+		$id = gen_uuid();
 
-		 $this->load->view('Login/register',$data);
-	}
+		if (isset($_POST['email'])) {
 
-	public function register_user() {
-		$data['error'] = '';
+			$account = [
+				'id' =>  $id,
+				'isNew' => true,
+				'username' => $_POST['email'],
+				'password' => $_POST['password'],
+				'firstname' => $_POST['firstname'],
+				'lastname' => $_POST['lastname'],
+				'role' => 'Administrator',
+			];
+
+			$data['msg'] = "Succeeded to sign up.<br>Please check verify your account via email.</p>";
+
+			$this->Mdl_Accounts->save($id, $account);
+
+			$data['error'] = $this->Mdl_Accounts->latestErr;
+
+			// Succeeded to sign up. now it's time to send verification email...
+			if ($data['error'] == "") {
+				$email = loadVerificationEmailTemplate($this, $account);
+				send(['wangyinxing19@gmail.com'], "Please verify your account.", $email);
+
+				return;
+			}
+		}
+
 
 		$this->load->view('Login/register',$data);
 	}

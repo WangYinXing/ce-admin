@@ -7,18 +7,21 @@ function validate(selector, type, errorMsg) {
 	if (val == null || val == "") {
 		$(selector).addClass("input-error");
 		alert(errorMsg);
+		$(selector).focus();
 		return false;
 	}
 
-	if (val = "" || type == "currency" && !validateCurrency(val)) {
+	if (val == "" || type == "currency" && !validateCurrency(val)) {
 		$(selector).addClass("input-error");
 		alert(errorMsg);
+		$(selector).focus();
 		return false;
 	}
 
-	if (val = "" || type == "email" && !validateEmail(val)) {
+	if (val == "" || type == "email" && !validateEmail(val)) {
 		$(selector).addClass("input-error");
 		alert(errorMsg);
+		$(selector).focus();
 		return false;
 	}
 	
@@ -27,7 +30,8 @@ function validate(selector, type, errorMsg) {
 }
 
 function validateEmail(email) {
-    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+//    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
 

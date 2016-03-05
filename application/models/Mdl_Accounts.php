@@ -53,6 +53,8 @@ Class Mdl_Accounts extends Mdl_Campus {
 			$this->db->update('person', [
 			"firstname" => $account['firstname'],
 			"lastname" => $account['lastname'],
+			"username" => $account['username'],
+			"role" => $account['role'],
 			], "id = '$id'");
 
 			if (isset($account['password']) && strlen($account['password']) > 5) {
@@ -60,17 +62,23 @@ Class Mdl_Accounts extends Mdl_Campus {
 				"password" => md5($account['password']),
 				], "id = '$id'");
 			}
-
-			$this->db->update('account', [
-				"username" => $account['username'],
-				], "id = '$id'");
-
-			$this->db->update('accountrole', [
-				"role" => $account['role'],
-				], "accountid = '$id'");
+			else {
+				$this->latestErr = "Password didn't match or shoter than 5 characters.";
+				return false;
+			}
 		}
 		// Insert...
 		else {
+			$username = $account['username'];
+
+			$this->db->from('account');
+			$this->db->where('username', $username);
+			
+			if (count($this->db->get()->result())) {
+				$this->latestErr = "Email has already taken.";
+				return false;
+			}
+
 			$this->db->insert('account', buildBaseParam([
 				"id" => $id,
 				"username" => $account['username'],
@@ -89,6 +97,8 @@ Class Mdl_Accounts extends Mdl_Campus {
 				"role" => $account['role'],
 				], $id));
 		}
+
+		return true;
 		
 	}
 

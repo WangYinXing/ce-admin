@@ -64,9 +64,6 @@ Class Mdl_Systems extends Mdl_Campus {
 			}
 		}
 
-		//print_r($arrSelectedIngs);
-		//exit;
-
 		// Re-add all colors.
 		if (count($arrSelectedIngs))
 			$this->db->insert_batch('systemdetail', $arrSelectedIngs);

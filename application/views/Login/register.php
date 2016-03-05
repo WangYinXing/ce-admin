@@ -19,9 +19,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-   <?php echo validation_errors(); ?>
-   <?php echo form_open('/Login/register_user'); ?>
-   <?php if ($error) { echo "<p style='color:#FF8264'>Failed to login.</p>"; } ?>
+    <?php echo validation_errors(); ?>
+    <?php echo form_open('/Login/register', array("id"=>"register")); ?>
+    <?php
+      if ($error) {
+        echo "<p style='color:#FF8264'>$error.</p>";
+      }
+      if ($msg) {
+        echo "<p style='color:#FFE000'>$msg";
+      }
+    ?>
       <div class="form-group has-feedback">
         <input name="firstname" type="text" class="form-control" placeholder="First name">
         <i class="input-icon fa fa-user"></i>
@@ -50,13 +57,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="row">
         <!-- /.col -->
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign Up</button>
         </div>
         <!-- /.col -->
       </div>
     </form>
 
-    <div class='signup'>I have already account. <a href='/Login'>&nbsp;&nbsp;Sign Up.</a></div>
+    <div class='signup'>I have already account. <a href='/Login'>&nbsp;&nbsp;Sign In.</a></div>
     <!-- /.social-auth-links -->
 <!--
     <a href="#">I forgot my password</a><br>
@@ -65,5 +72,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   <!-- /.login-box-body -->
 </div>
+<script src="/assets/dist/js/formvalidation.js"></script>
+<script src="/assets/dist/js/pages/register.js"></script>
+
 </body>
 </html>
