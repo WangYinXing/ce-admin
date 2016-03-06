@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-define('BASE_URL', 'http://ce-admin.com/');
+define('BASE_URL', 'http://104.239.230.5/');
 
 
 function loadVerificationEmailTemplate($ctrl, $account) {
