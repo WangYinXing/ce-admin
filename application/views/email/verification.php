@@ -8,7 +8,7 @@
 
 </style>
 
-<body style='font-family: menu-font'>
+<body style='font-family: Helvetica,sans-serif'>
 	<div style=''>
 		<div style="padding:1em 0em;text-align:center;background: #231B16;">
 			<img style='height:100px; display:inline-block;vertical-align: middle;' src='<?= $base_url ?>/assets/ce-logo.png' />
