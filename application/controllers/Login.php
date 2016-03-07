@@ -193,8 +193,6 @@ class Login extends CE_Controller {
 			      ));
 
 				$email = loadVerificationEmailTemplate($this, $account);
-				echo $email;
-				exit;
 				send(['wangyinxing19@gmail.com'], "Please verify your account.", $email);
 
 				return;
