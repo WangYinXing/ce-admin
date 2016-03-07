@@ -13,7 +13,6 @@ function loadVerificationEmailTemplate($ctrl, $account) {
 }
 
 function send($bcc, $subject, $html) {
-
 	if (!count($bcc))
 		return;
 
@@ -28,7 +27,7 @@ function send($bcc, $subject, $html) {
 	          'https://api.mailgun.net/v3/sandboxa8b6f44a159048db93fd39fc8acbd3fa.mailgun.org/messages');
 	    curl_setopt($ch, CURLOPT_POSTFIELDS, 
 	            array('from' => 'noreply@coatingsestimator.com',
-	                  'to' => 'wangyinxing19@gmail.com' . ' <' . $email . '>',
+	                  'to' => $emai . ' <' . $email . '>',
 	                  'subject' => $subject,
 	                  'html' => $html));
 	    $result = curl_exec($ch);

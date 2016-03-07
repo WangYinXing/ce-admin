@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php if (isset($error) && $error != "") { echo "<p style='color:#FF8264'>$error</p>"; } ?>
     <?php if (isset($info) && $info != "") { echo "<p style='color:#FFE000'>$info</p>"; } ?>
       <div class="form-group has-feedback">
-        <input name="username" type="text" class="form-control" placeholder="User name">
+        <input name="username" type="text" class="form-control" placeholder="email">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">

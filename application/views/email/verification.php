@@ -15,14 +15,17 @@
 			<h2 style='margin:0em 2em;display:inline-block;vertical-align: middle;color:white'>Thanks for using Coatings Estimator.</h2>
 		</div>
 		<div style='background:#E4D4CA;padding:2em;'>
-			You are almost there.
-			<br/>
-			<?php echo $base_url;
-			echo $token;
-			?>
-			<a href='<?php echo "$base_url/Login/verify?token=$token"; ?>' >Please click this to verificate your account.</a>
-			<br/>
-			Thanks for your choosing Concrete products.<br/>
+			welcome!
+			Please click on the link below to confirm your email address.
+			<br>
+			<a href='<?php echo "$base_url/Login/verify?token=$token"; ?>' ><?php echo "$base_url/Login/verify?token=$token"; ?></a>
+			<br>
+			Please copy the link to your browser if you are unable to click in email.
+			This link will expire in less than 5 days.
+			If you did not sign up for the app. Please ignore this mail.
+
+			Best regards.
+			Coatings Estimator team.
 		</div>
 	</div>
 	<footer style='background: #231B16;color:white; height:3em'>
