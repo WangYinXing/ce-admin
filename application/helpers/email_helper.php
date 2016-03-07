@@ -27,7 +27,7 @@ function send($bcc, $subject, $html) {
 	          'https://api.mailgun.net/v3/sandboxa8b6f44a159048db93fd39fc8acbd3fa.mailgun.org/messages');
 	    curl_setopt($ch, CURLOPT_POSTFIELDS, 
 	            array('from' => 'noreply@coatingsestimator.com',
-	                  'to' => $emai . ' <' . $email . '>',
+	                  'to' => $email . ' <' . $email . '>',
 	                  'subject' => $subject,
 	                  'html' => $html));
 	    $result = curl_exec($ch);
