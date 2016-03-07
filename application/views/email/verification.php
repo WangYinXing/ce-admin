@@ -17,7 +17,10 @@
 		<div style='background:#E4D4CA;padding:2em;'>
 			You are almost there.
 			<br/>
-			<a href='<?php echo "<?= $base_url ?>/Login/verify?token=$token"; ?>' >Please click this to verificate your account.</a>
+			<?php echo $base_url;
+			echo $token;
+			?>
+			<a href='<?php echo "$base_url/Login/verify?token=$token"; ?>' >Please click this to verificate your account.</a>
 			<br/>
 			Thanks for your choosing Concrete products.<br/>
 		</div>
