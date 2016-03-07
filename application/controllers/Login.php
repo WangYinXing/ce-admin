@@ -188,7 +188,7 @@ class Login extends CE_Controller {
     			$this->load->model('Mdl_Tokens');
 			    $this->Mdl_Tokens->create(array(
 			      "token" => $hash,
-			      "user" =>  $account['id'],
+			      "account" =>  $account['id'],
 			      'type' => 0,
 			      ));
 
