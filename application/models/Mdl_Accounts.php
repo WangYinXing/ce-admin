@@ -20,11 +20,21 @@ Class Mdl_Accounts extends Mdl_Campus {
 
 		$login = $this->db->get()->result();
 
+		$this->latestErr = "Email or password is not correct. Please make sure them correctly and try again.";
+
 		// The results of the query are stored in $login.
 	    // If a value exists, then the user account exists and is validated
 	    if ( is_array($login) && count($login) == 1 ) {
 	        // Set the users details into the $details property of this class
 	        $this->details = $login[0];
+
+	        // This user is not verified yet...
+	        if ($this->details->status == 0) {
+	        	$this->latestErr = "This account is not verified. please verify via email and try again.";
+	        	return false;
+	        }
+
+	        $this->latestErr = "";
 	        // Call set_session to set the user's session vars via CodeIgniter
 	        $this->set_session();
 	        return true;
@@ -83,6 +93,7 @@ Class Mdl_Accounts extends Mdl_Campus {
 				"id" => $id,
 				"username" => $account['username'],
 				"password" => md5($account['password']),
+				"status" => 0,
 				], $id));
 
 			$this->db->insert('person', buildBaseParam([

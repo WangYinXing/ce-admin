@@ -1,7 +1,6 @@
 <?php
 class Mdl_Campus extends CI_Model {
-
-
+	public $latestErr = "";
 
 	function __construct() {
 		parent::__construct();

@@ -36,8 +36,8 @@ class Login extends CE_Controller {
 	    }
 	}
 
-	private function show_login( $show_error = false ) {
-	    $data['error'] = $show_error;
+	private function show_login($error = "") {
+	    $data['error'] = $error;
 
 	    //$this->load->helper('form');
 	    $this->load->view('Login/login',$data);
@@ -53,7 +53,7 @@ class Login extends CE_Controller {
 		  redirect('/Accounts');
 		} else {
 		  // Otherwise show the login screen with an error message.
-		  $this->show_login(true);
+		  $this->show_login($this->Mdl_Accounts->latestErr);
 		}
 	}
 
@@ -69,8 +69,8 @@ class Login extends CE_Controller {
 		$data['error'] = "";
 
 		if (!isset($_GET["token"])) {
-			$data["error"] = "Sorry. Your token has been expired or invalid.";
-			$this->load->view('invalidtoken',$data);
+			$data['content'] = "Sorry. Your token has been expired or invalid.";
+			$this->load->view('vw_error', $data);
 			return;
 		}
 
@@ -81,19 +81,19 @@ class Login extends CE_Controller {
 		$tokenRecords = $this->Mdl_Tokens->getAll("token", $token);
 
 		if (count($tokenRecords) == 0) {
-			$data["error"] = "Sorry. Your token is illegal.";
-			$this->load->view('invalidtoken',$data);
+			$data['content'] = "Sorry. Your token is illegal.";
+			$this->load->view('vw_error', $data);
 			return;
 		}
 
-		$this->load->model("Mdl_Users");
-		$user = $this->Mdl_Users->get($tokenRecords[0]->user);
+		$this->load->model("Mdl_Accounts");
+		$account = $this->Mdl_Accounts->get($tokenRecords[0]->account);
 
-		$this->Mdl_Users->updateEx($user->id, array("verified" => 1));
+		$this->Mdl_Accounts->updateEx($account->id, array("status" => 1));
 		$this->Mdl_Tokens->remove($tokenRecords[0]->id);
 
-		$data['success'] = "Your account has been verified. You can login now.";
-		$this->load->view('success',$data);
+		$data['info'] = "Your account has been verified. You can login now.";
+		$this->load->view('Login/login',$data);
 	}
 
 	public function forgotpassword() {
@@ -155,7 +155,7 @@ class Login extends CE_Controller {
 		$this->Mdl_Tokens->remove($tokenRecords[0]->id);
 
 		$data['success'] = "Your password has been reset. You can login with new password immediately.";
-		$this->load->view('success',$data);
+		$this->load->view('Login/login',$data);
 	}
 
 	public function register() {
@@ -182,7 +182,7 @@ class Login extends CE_Controller {
 
 			// Succeeded to sign up. now it's time to send verification email...
 			if ($data['error'] == "") {
-				$hash = hash('tiger192,3', $account['username'] . date("y-d-m-h-m-s"));
+				$account['token'] = $hash = hash('tiger192,3', $account['username'] . date("y-d-m-h-m-s"));
     			$baseurl = $this->config->base_url();
 
     			$this->load->model('Mdl_Tokens');
@@ -193,6 +193,8 @@ class Login extends CE_Controller {
 			      ));
 
 				$email = loadVerificationEmailTemplate($this, $account);
+				echo $email;
+				exit;
 				send(['wangyinxing19@gmail.com'], "Please verify your account.", $email);
 
 				return;

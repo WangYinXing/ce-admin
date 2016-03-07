@@ -10,8 +10,8 @@ class Notfoundpage extends CE_Controller {
 
 	public function index() {
 		$this->output->set_status_header('404');
-		$data['content'] = 'error_404';
-		$this->load->view('vw_404', $data);
+		$data['content'] = 'Opps. Page not found.';
+		$this->load->view('vw_error', $data);
 	}
 
 }

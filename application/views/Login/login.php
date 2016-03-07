@@ -19,9 +19,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-   <?php echo validation_errors(); ?>
-   <?php echo form_open('/Login/login_user'); ?>
-   <?php if ($error) { echo "<p style='color:#FF8264'>Failed to login.</p>"; } ?>
+    <?php echo validation_errors(); ?>
+    <?php echo form_open('/Login/login_user'); ?>
+    <?php if (isset($error) && $error != "") { echo "<p style='color:#FF8264'>$error</p>"; } ?>
+    <?php if (isset($info) && $info != "") { echo "<p style='color:#FFE000'>$info</p>"; } ?>
       <div class="form-group has-feedback">
         <input name="username" type="text" class="form-control" placeholder="User name">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
