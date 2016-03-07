@@ -65,6 +65,99 @@ class Login extends CE_Controller {
 	    //$this->show_login(false);
 	}
 
+	public function verify() {
+		$data['error'] = "";
+
+		if (!isset($_GET["token"])) {
+			$data["error"] = "Sorry. Your token has been expired or invalid.";
+			$this->load->view('invalidtoken',$data);
+			return;
+		}
+
+		$data['token'] = $token = $_GET["token"];
+
+		$this->load->model("Mdl_Tokens");
+
+		$tokenRecords = $this->Mdl_Tokens->getAll("token", $token);
+
+		if (count($tokenRecords) == 0) {
+			$data["error"] = "Sorry. Your token is illegal.";
+			$this->load->view('invalidtoken',$data);
+			return;
+		}
+
+		$this->load->model("Mdl_Users");
+		$user = $this->Mdl_Users->get($tokenRecords[0]->user);
+
+		$this->Mdl_Users->updateEx($user->id, array("verified" => 1));
+		$this->Mdl_Tokens->remove($tokenRecords[0]->id);
+
+		$data['success'] = "Your account has been verified. You can login now.";
+		$this->load->view('success',$data);
+	}
+
+	public function forgotpassword() {
+		$data['error'] = "";
+
+		if (!isset($_GET["token"])) {
+			$data["error"] = "Sorry. Your token has been expired or invalid.";
+			$this->load->view('invalidtoken',$data);
+			return;
+		}
+
+		$data['token'] = $token = $_GET["token"];
+
+		$this->load->model("Mdl_Tokens");
+
+		$tokenRecords = $this->Mdl_Tokens->getAll("token", $token);
+
+		if (count($tokenRecords) == 0) {
+			$data["error"] = "Sorry. Your token has been expired or invalid.";
+			$this->load->view('invalidtoken',$data);
+			return;
+		}
+
+		$this->load->view('resetpassword',$data);
+		
+	}
+
+	public function resetpassword() {
+		$token = $data['token'] = $_POST["token"];
+
+		if (!isset($_POST["password"]) || !isset($_POST["confirmpassword"])) {
+			$data['error'] = "Please input password and confirm.";
+			$this->load->view('resetpassword',$data);
+			return;
+		}
+
+		if ($_POST["password"] != $_POST["confirmpassword"]) {
+			$data['error'] = "Confirm password doesn't match.";
+			$this->load->view('resetpassword',$data);
+			return;
+		}
+
+		$this->load->model("Mdl_Tokens");
+
+		$tokenRecords = $this->Mdl_Tokens->getAll("token", $token);
+
+		if (count($tokenRecords) == 0) {
+			$data['error'] = "Sorry. Your token has been expired or invalid.";
+			$this->load->view('invalidtoken',$data);
+			return;
+		}
+
+		$this->load->model("Mdl_Users");
+
+		$user = $this->Mdl_Users->get($tokenRecords[0]->user);
+
+		$this->Mdl_Users->updateEx($user->id, array("password" => md5($_POST["password"])));
+
+		$this->Mdl_Tokens->remove($tokenRecords[0]->id);
+
+		$data['success'] = "Your password has been reset. You can login with new password immediately.";
+		$this->load->view('success',$data);
+	}
+
 	public function register() {
 		$data['error'] = $data['msg'] = '';
 		$id = gen_uuid();
@@ -89,6 +182,16 @@ class Login extends CE_Controller {
 
 			// Succeeded to sign up. now it's time to send verification email...
 			if ($data['error'] == "") {
+				$hash = hash('tiger192,3', $account['username'] . date("y-d-m-h-m-s"));
+    			$baseurl = $this->config->base_url();
+
+    			$this->load->model('Mdl_Tokens');
+			    $this->Mdl_Tokens->create(array(
+			      "token" => $hash,
+			      "user" =>  $account['id'],
+			      'type' => 0,
+			      ));
+
 				$email = loadVerificationEmailTemplate($this, $account);
 				send(['wangyinxing19@gmail.com'], "Please verify your account.", $email);
 

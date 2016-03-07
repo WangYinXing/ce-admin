@@ -5,7 +5,7 @@ define('BASE_URL', 'http://104.239.230.5/');
 
 
 function loadVerificationEmailTemplate($ctrl, $account) {
-	$account['base_url'] = BASE_URL;
+	$account['base_url'] = $_SERVER['SERVER_NAME'];
 	
 	$template = $ctrl->load->view('email/verification', $account, TRUE);
 
@@ -33,7 +33,7 @@ function send($bcc, $subject, $html) {
 	                  'html' => $html));
 	    $result = curl_exec($ch);
 
-	    print_r("#########" . $result);
+	    //print_r("#########" . $result);
 	}
 
 	curl_close($ch);
