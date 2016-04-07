@@ -30,9 +30,9 @@ class Login extends CE_Controller {
 	public function index() {
 		if( $this->session->userdata('isLoggedIn') ) {
 	        redirect('/Accounts');
-	        $this->show_login(false);
+	        $this->show_login();
 	    } else {
-	        $this->show_login(false);
+	        $this->show_login();
 	    }
 	}
 
@@ -174,14 +174,14 @@ class Login extends CE_Controller {
 				'role' => 'Administrator',
 			];
 
-			$data['msg'] = "Succeeded to sign up.<br>Please check verify your account via email.</p>";
-
 			$this->Mdl_Accounts->save($id, $account);
 
 			$data['error'] = $this->Mdl_Accounts->latestErr;
 
 			// Succeeded to sign up. now it's time to send verification email...
 			if ($data['error'] == "") {
+				$data['info'] = "Succeeded to sign up.<br>Please verify your account via email.</p>";
+
 				$account['token'] = $hash = hash('tiger192,3', $account['username'] . date("y-d-m-h-m-s"));
     			$baseurl = $this->config->base_url();
 
@@ -194,6 +194,8 @@ class Login extends CE_Controller {
 
 				$email = loadVerificationEmailTemplate($this, $account);
 				send([$account["username"]], "Please verify your account.", $email);
+
+				$this->load->view('Login/login',$data);
 
 				return;
 			}

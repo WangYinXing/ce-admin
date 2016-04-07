@@ -15,17 +15,18 @@
 			<h2 style='margin:0em 2em;display:inline-block;vertical-align: middle;color:white'>Thanks for using Coatings Estimator.</h2>
 		</div>
 		<div style='background:#E4D4CA;padding:2em;'>
-			welcome!
-			Please click on the link below to confirm your email address.
+			Welcome!<br>
+			Please click on the link below to confirm your email address.<br>
 			<br>
 			<a href='<?php echo "$base_url/Login/verify?token=$token"; ?>' ><?php echo "$base_url/Login/verify?token=$token"; ?></a>
 			<br>
-			Please copy the link to your browser if you are unable to click in email.
-			This link will expire in less than 5 days.
-			If you did not sign up for the app. Please ignore this mail.
-
-			Best regards.
-			Coatings Estimator team.
+			<br>
+			Please copy the link to your browser if you are unable to click in email.<br>
+			This link will expire in less than 5 days.<br>
+			If you did not sign up for the app. Please ignore this mail.<br>
+			<br>
+			Best regards.<br>
+			Coatings Estimator team.<br>
 		</div>
 	</div>
 	<footer style='background: #231B16;color:white; height:3em'>

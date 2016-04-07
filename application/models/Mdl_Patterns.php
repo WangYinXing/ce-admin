@@ -34,7 +34,7 @@ Class Mdl_Patterns extends Mdl_Campus {
 			$this->db->insert('pattern', buildBaseParam([
 				"id" => $id,
 				"name" => $color['name']
-				]));
+				], $id));
 		}
 		
 	}

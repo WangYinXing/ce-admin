@@ -15,10 +15,13 @@ $(function() {
           var chekced  = $(this).find("input[type='checkbox']").prop("checked");
 
           if (chekced) {
+            var extra = parseInt($(this).find("input._extra").val());
+            var factor = parseInt($(this).find("input._factor").val());
+
             selIngs[id] = {
               checked: $(this).find("input[type='checkbox']").prop("checked"),
-              extra: $(this).find("input._extra").val(),
-              factor: $(this).find("input._factor").val()
+              extra: isNaN(extra) ? 0 : extra,
+              factor: isNaN(factor) ? 0 : factor,
             };
           }
 

@@ -22,11 +22,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php echo validation_errors(); ?>
     <?php echo form_open('/Login/register', array("id"=>"register")); ?>
     <?php
-      if ($error) {
+      if (isset($error) && $error != "") {
         echo "<p style='color:#FF8264'>$error.</p>";
       }
-      if ($msg) {
-        echo "<p style='color:#FFE000'>$msg";
+      if (isset($info) && $info != "") {
+        echo "<p style='color:#FFE000'>$info";
       }
     ?>
       <div class="form-group has-feedback">
