@@ -61,11 +61,13 @@ Class Mdl_Accounts extends Mdl_Campus {
 		// Update ....
 		if (!$account['isNew']) {
 			$this->db->update('person', [
-			"firstname" => $account['firstname'],
-			"lastname" => $account['lastname'],
-			"username" => $account['username'],
-			"role" => $account['role'],
-			], "id = '$id'");
+				"firstname" => $account['firstname'],
+				"lastname" => $account['lastname'],
+				], "id = '$id'");
+
+			$this->db->update('accountrole', [
+				"role" => $account['role']
+				], "accountid = '$id'");
 
 			if (isset($account['password']) && strlen($account['password']) > 5) {
 				$this->db->update('account', [

@@ -31,7 +31,7 @@
     <div class="row">
       <div class="col-md-4">
         <div class="box-body">
-          <div class="form-group"><label>Email address</label><input name="username" type="text" value='<?= $param->username ?>' class="form-control" placeholder="email or usename"></div>
+          <div class="form-group"><label>Email address</label><input <?php if (!$param->isNew) echo 'readonly'; ?> name="username" type="text" value='<?= $param->username ?>' class="form-control" placeholder="email or usename"></div>
           <div class="form-group"><label >Fist name</label><input name="firstname" type="text" value='<?= $param->firstname ?>' class="form-control" placeholder="First name"></div>
           <div class="form-group"><label >Last name</label><input name="lastname" type="text" value='<?= $param->lastname ?>' class="form-control" placeholder="Last name"></div>
         </div>
