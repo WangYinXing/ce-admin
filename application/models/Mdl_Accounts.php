@@ -49,6 +49,10 @@ Class Mdl_Accounts extends Mdl_Campus {
 		$this->db->join("accountrole", "account.id = accountrole.accountid", "left");
 		$this->db->join("person", "account.id = person.id", "left");
 
+		if ($qtype != '' && $query != '') {
+			$this->db->like($qtype, $query);
+		}
+
 		if ($count)
 			return $this->db->count_all_results();
 

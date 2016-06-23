@@ -14,7 +14,6 @@ class TBView_Accounts extends CE_Controller {
 	public function ajax_list() {
 		$ret = [];
 
-
 		$data = $this->Mdl_Accounts->_list(
 			$_POST['rp'],
 			$_POST['page'],
@@ -23,10 +22,17 @@ class TBView_Accounts extends CE_Controller {
 			$_POST['sortname'],
 			$_POST['sortorder']);
 
+		foreach ($data as $key => $val) {
+			if ($val->id == null) {
+				$val->id = $val->accountid;
+			}
+		}
+
 		echo json_encode(array(
-		  'page'=>$_POST['page'],
-		  'total'=>$this->Mdl_Accounts->get_length(),
-		  'rows'=>$data,
+		  'page' => $_POST['page'],
+		  'total' => $this->Mdl_Accounts->get_length(),
+		  'rows' => $data,
+		  'query' => $_POST['query'],
 		));
 	}
 

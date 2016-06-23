@@ -13,4 +13,19 @@
 		],
 		title: "Registered accounts"
 	};
+
+
+$(function() {
+	$(document).ready(function(evt) {
+		$('.search-bar .query').change(function() {
+			$("#main-table").flexOptions(
+				{params: [
+					{name: 'query', value:$(this).val()},
+					{name: 'qtype', value:'username'},
+				]}).flexReload();
+		})
+  	});
+});
+
+
 </script>

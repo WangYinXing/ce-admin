@@ -15,15 +15,16 @@ body {
 
 
 .skin-blue .main-header .logo,.skin-blue .main-header .navbar{
-	background: #292d35;
+	background: #e6ebf5;
 }
 
 .skin-blue .main-header .logo:hover, .skin-blue .main-header .navbar .sidebar-toggle:hover {
-  background: #373C46;
+  background: #4157a7;
 }
 
 .skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
-   background:#1C1F25;
+   background:#eaeffb;
+   color:;
     -webkit-box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.32);
@@ -37,7 +38,7 @@ body {
 }
 
 .login-box-body,.register-box-body{
-    background-color: rgba(0, 0, 0, 0.14);
+    background-color: white;
     padding: 20px;
     padding-top:40px;
     border-top: 0;
@@ -51,21 +52,20 @@ body {
 }
 
 .skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
-    background: #D81F2F;
+    background: #4157a7;
 }
 
 .skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
-    border-left-color: #F0FF05;
+    border-left-color: #959baf;
 }
 
 .form-control {
     background-color: rgba(255, 255, 255, 0.19);
-    color: white;
 }
 
 .form-control:focus {
-    border-color: #FFF823;
-    color: #FFF823;
+    border-color: #4157a7;
+    color: #4157a7;
 }
 
 .input-group .input-group-addon {
@@ -101,17 +101,20 @@ body {
 }
 
 .flexigrid table {
-  background: #292d35;
+  //background: #292d35;
+  font-size: 1em;
 }
 
 .flexigrid table th {
+    background: #2d3e79;
+    line-height: 2em;
   color: white;
   border: none;
-  border-bottom: 4px solid rgba(255,255,255,0.1) !important;
+  border-bottom: 4px solid rgb(45, 62, 121) !important;
 }
 
 .flexigrid table th:hover {
-  border-bottom: 4px solid #F0FF05 !important;
+  border-bottom: 4px solid white !important;
 }
 
 
@@ -139,7 +142,7 @@ body {
 
 
 .flexigrid tr.erow td {
-    background: #3D434E;
+    background: #e6ebf5;
 }
 
 .flexigrid tr.erow td.sorted {
@@ -147,29 +150,36 @@ body {
 }
 
 .flexigrid div.hDiv {
-    background: none;
+    background: #2d3e79;
 }
 
 .flexigrid div.pDiv {
-    background: #292d35;
+    background: #2d3e79;
 }
 
 .flexigrid div.vGrip {
     background: #292d35;   
 }
 
+
+.flexigrid div.pDiv {
+    color: white;
+}
+
 .flexigrid div.pDiv input {
-    background: #49505D;
+    //background: #49505D;
     border:0px;
+    color: #2d3e79;
 }
 
 .flexigrid div.pDiv select {
-    background: #49505D;
-    border:0px;   
+    //background: #49505D;
+    border:0px;
+    color: #2d3e79;
 }
 
 #main-table tbody tr {
-    background: #505765;
+    background: white;
 }
 
 .flexigrid div.pDiv div.pButton:hover span, .flexigrid div.pDiv div.pButton.pBtnOver span {
@@ -200,21 +210,21 @@ body {
 }
 
 .flexigrid div.bDiv tr:hover td, .flexigrid div.bDiv tr:hover td.sorted, .flexigrid div.bDiv tr.trOver td.sorted, .flexigrid div.bDiv tr.trOver td {
-    background: #D81F2F;
+    background: #4157a7;
     border: none;
     color: white;
     line-height: 2em;
 }
 
 .flexigrid div.bDiv tr.trSelected:hover td, .flexigrid div.bDiv tr.trSelected:hover td.sorted, .flexigrid div.bDiv tr.trOver.trSelected td.sorted, .flexigrid div.bDiv tr.trOver.trSelected td, .flexigrid tr.trSelected td.sorted, .flexigrid tr.trSelected td {
-  background: #D81F2F;
+  background: #4157a7;
   color: white;
   border: none;
   line-height: 2em;
 }
 
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-    opacity: 0.2;
+    opacity: 0.6;
 }
 
 .flexigrid .pFirst {
@@ -248,4 +258,34 @@ body {
 
 .ignore-labels label{
     display: none;
+}
+
+.skin-blue .sidebar a {
+    color: #566a90;
+}
+
+.skin-blue .treeview-menu>li>a {
+    color: #566a90;
+}
+
+.skin-blue .treeview-menu>li.active>a, .skin-blue .treeview-menu>li>a:hover {
+    color: #ffffff;
+    background: #34478c;
+}
+
+.skin-blue .main-header .navbar .nav>li>a {
+    color: #2d3e79;
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle {
+    color: #2d3e79;
+}
+.skin-blue .content-wrapper div.search-bar {
+    margin: 19px;
+}
+
+.skin-blue .content-wrapper div.search-bar input{
+    padding: 4px 10px;
+    width: 40%;
+    border: 1px solid #4157a7;
 }

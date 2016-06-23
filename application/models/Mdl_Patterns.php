@@ -14,6 +14,10 @@ Class Mdl_Patterns extends Mdl_Campus {
 		$this->db->select("*");
 		$this->db->from("pattern");
 
+		if ($qtype != '' && $query != '') {
+			$this->db->like($qtype, $query);
+		}
+
 		if ($count)
 			return $this->db->count_all_results();
 

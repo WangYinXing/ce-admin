@@ -23,6 +23,10 @@
     <button type="button" class="btn-delete btn btn-flat btn-girdtoolbar">DELETE</button>
   </div>
 
+  <div class='search-bar'>
+    <input class='query' placeholder="Search keyword">
+  </div>
+
   <div id="main-table"></div>
   <div class="grid-prompt">
     <small>Please double click to edit.</small>

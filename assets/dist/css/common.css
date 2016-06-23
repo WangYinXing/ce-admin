@@ -45,14 +45,12 @@ label:hover:before {
 
 .btn-girdtoolbar {
   width: 200px;
-  background: #373C46;
-  color: white;
-  border:1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #4157a7;
 }
 
 .btn-girdtoolbar:hover {
-  background: #A7ADB9;
-  color: #1D2025;
+  border-bottom: 2px solid #4157a7
 }
 
 .wrapper {
@@ -60,15 +58,15 @@ label:hover:before {
 }
 
 .content-wrapper {
-  background: #292d35;
-  color: white;
+  background: #f6f9ff;
+  color: #2d3e79;
 }
 
 .content-header>h1 {
   margin-bottom: 0.5em;
   font-size: 24px;
-  border-bottom: solid 1px white;
-  color: white;
+  border-bottom: solid 1px #d7dcef;
+  color: #2d3e79;
 }
 
 .content-header>h1>small {
@@ -76,7 +74,7 @@ label:hover:before {
 }
 
 .flexigrid div.mDiv {
-  color: white;
+  color: #2d3e79;
   background: none;
   border: none;
 }
@@ -183,16 +181,17 @@ a:hover, a:active, a:focus {
 
 .flexigrid {
   padding:1em;
+  font-size: 1em;
 }
 
 #main-table {
-  background: #49505D;
+  //background: #49505D;
 }
 
 
 .form-group select {
-  background: #424854;
-  color: white;
+  background: transparent;
+  //color: white;
   display: block;
   width: 100%;
   height: 2.4em;
@@ -200,11 +199,12 @@ a:hover, a:active, a:focus {
   -webkit-appearance:none;
   -moz-appearance:none;
   appearance:none;
+  padding-left: 1em;
   
 }
 
 .skin-blue .sidebar-menu>li>.treeview-menu {
-  background: #292D35;
+  background: #dbe0ea;
 }
 
 .main-header {
@@ -213,7 +213,7 @@ a:hover, a:active, a:focus {
 
 .item input {
   background-color: rgba(255, 255, 255, 0.19);
-  color: white;
+  //color: white;
   height: 2em;
   margin-bottom: 0.5em;
   width: 100%;
@@ -240,7 +240,7 @@ a:hover, a:active, a:focus {
 
 .grid-prompt {
   margin-left: 1em;
-  color: rgba(255,255,255,0.6);
+  //color: rgba(255,255,255,0.6);
 }
 
 
@@ -272,7 +272,7 @@ input[type=radio]:not(old):checked + label{
 
 .form-control[readonly] {
   opacity: 1 !important;
-  color: white;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.09);
+    color: #656a7b;
+    background: transparent;
+    border: 1px solid rgb(236, 236, 236);
 }
