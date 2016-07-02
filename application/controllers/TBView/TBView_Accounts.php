@@ -56,11 +56,11 @@ class TBView_Accounts extends CE_Controller {
 		}
 
 		$arrRoles = [
-			"user",
-			"administrator",
-			"subscriber",
-			"machine",
-			"concreteprotector"
+			"Free user",
+			//"administrator",
+			//"subscriber",
+			//"machine",
+			"Concreteprotector"
 		];
 
 		$account->rolesHTML = "<select name='role'>";

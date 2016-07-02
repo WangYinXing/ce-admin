@@ -111,7 +111,7 @@ Class Mdl_Accounts extends Mdl_Campus {
 			$this->db->insert('accountrole', buildBaseParam([
 				"id" => gen_uuid(),
 				"accountid" => $id,
-				"role" => $account['role'],
+				"role" => strtolower($account['role']),
 				], $id));
 		}
 
